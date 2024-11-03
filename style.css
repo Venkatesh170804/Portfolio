@@ -63,6 +63,9 @@ nav ul li a:hover::after{
     margin-top: 20%;
     font-size: 30px;
 }
+.header-text p span{
+    color: #ff9900;
+}
 .header-text h1{
     font-size: 60px;
     margin-top: 20px;
