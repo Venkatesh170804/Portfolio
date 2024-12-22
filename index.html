@@ -11,7 +11,7 @@
 <div id="header">   
     <div class="container">
         <nav>
-            <img src="images/logo.png" class="logo">
+            <img src="images/logo.png" class="logo" id="aws-logo" style="cursor: pointer;">
             <ul id="sidemenu">
                 <li><a href="#header">Home</a></li>
                 <li><a href="#About">About</a></li>
@@ -137,8 +137,20 @@
     </div>
 </div>
 
-
-
+<script>
+    // Wait until the DOM is fully loaded
+    document.addEventListener("DOMContentLoaded", function() {
+        // Select the logo by its ID
+        const awsLogo = document.getElementById("aws-logo");
+        
+        // Check if the logo exists to avoid errors
+        if (awsLogo) {
+            awsLogo.addEventListener("click", function() {
+                window.location.reload();
+            });
+        }
+    });
+</script>
 
 <script>
     var tablinks= document.getElementsByClassName("tab-links");
