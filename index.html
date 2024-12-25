@@ -122,13 +122,13 @@
                 <a href="images/my-cv.pdf" download class="btn btn2">Download CV</a>
             </div>
             <div class="contact-right">
-                <form name="submit-to-google-sheet">
-                    <input type="text" name="Name" placeholder="Your Name" required>
-                    <input type="email" name="e-mail" placeholder="Your Email" required>
-                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                <form action="https://formspree.io/f/mrbbezbl" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
                     <button type="submit" class="btn btn2">Submit</button>
                 </form>
-                <span id="msg">Thank You...!!</span>
+                <span id="msg"></span>
             </div>
         </div>
     </div>
@@ -181,22 +181,37 @@
     }
 </script>
 <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbygb8O70SvSm1mt9Sn1EYEDoxzD1XyBHj18qDodulDGd-l55WNIsIHr8CVB44G7MS6R/exec'
-    const form = document.forms['submit-to-google-sheet']
-    const msg = document.getElementById("msg")
+    const form = document.querySelector('form');
+    const msg = document.getElementById('msg');
   
-    form.addEventListener('submit', e => {
-      e.preventDefault()
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => {
-            msg.innerHTML = "Message Sent Successfully"
-            setTimeout(function(){
-                msg.innerHTML = ""
-            },5000)
-            form.reset()
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+  
+
+      const formData = new FormData(form);
+  
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json',
+        },
+      })
+        .then((response) => {
+          if (response.ok) {
+            msg.innerHTML = 'Message Sent Successfully!';
+            setTimeout(() => {
+              msg.innerHTML = '';
+            }, 5000);
+            form.reset();
+          } else {
+            msg.innerHTML = 'Something went wrong. Please try again.';
+          }
         })
-        .catch(error => console.error('Error!', error.message))
-    })
+        .catch((error) => {
+          msg.innerHTML = 'Error sending message. Please check your internet connection.';
+        });
+    });
   </script>
 </body>
 </html>
