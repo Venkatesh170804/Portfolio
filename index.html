@@ -152,10 +152,12 @@
 </script>
 
 <script>
-    var tablinks= document.getElementsByClassName("tab-links");
-    var tabcontents = document.getElementsByClassName("tab-contents");
+    // Select all tab links and tab contents
+var tablinks = document.getElementsByClassName("tab-links");
+var tabcontents = document.getElementsByClassName("tab-contents");
 
-    function opentab(tabname) {
+// Open the specified tab
+function opentab(tabname) {
     for (let tablink of tablinks) {
         tablink.classList.remove("active-link");
     }
@@ -167,7 +169,15 @@
     event.currentTarget.classList.add("active-link");
 }
 
+// Set the default tab (Education) on page load
+document.addEventListener("DOMContentLoaded", function () {
+    // Activate the Education tab link
+    tablinks[0].classList.add("active-link");
 
+    // Display the Education tab content
+    document.getElementById("brown").style.display = "block";
+});
+    
 </script>
 
 <script>
