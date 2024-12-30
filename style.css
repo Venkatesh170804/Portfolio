@@ -143,7 +143,7 @@ nav ul li a:hover::after{
 .tab-contents{
     display: none;
 }
-.tab-contents.hmt-tab{
+.tab-contents.brown-tab{
     display: block;
 }
 
