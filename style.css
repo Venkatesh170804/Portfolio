@@ -108,18 +108,20 @@ nav ul li a:hover::after{
     font-weight: 600;
     color: #fff;
 }
-.tab-titles{
+.tab-titles {
     display: flex;
     margin: 20px 0 40px;
 }
-.tab-links{
+
+.tab-links {
     margin-right: 50px;
     font-size: 18px;
     font-weight: 500;
     cursor: pointer;
     position: relative;
 }
-.tab-links::after{
+
+.tab-links::after {
     content: '';
     width: 0;
     height: 3px;
@@ -129,21 +131,28 @@ nav ul li a:hover::after{
     bottom: -8px;
     transition: 0.5s;
 }
-.tab-links.active-link::after{
+
+.tab-links.active-link::after {
     width: 100%;
 }
-.tab-contents ul li{
+
+.tab-contents ul li {
     list-style: none;
     margin: 14px 0;
 }
-.tab-contents ul li span{
+
+.tab-contents ul li span {
     color: #b54769;
     font-size: 14px;
 }
-.tab-contents{
+
+/* Ensure all tab contents are hidden by default */
+.tab-contents {
     display: none;
 }
-.tab-contents.brown-tab{
+
+/* Display the 'Education' section by default */
+#brown {
     display: block;
 }
 
