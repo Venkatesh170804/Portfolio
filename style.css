@@ -146,12 +146,10 @@ nav ul li a:hover::after{
     font-size: 14px;
 }
 
-/* Ensure all tab contents are hidden by default */
 .tab-contents {
     display: none;
 }
 
-/* Display the 'Education' section by default */
 #brown {
     display: block;
 }
